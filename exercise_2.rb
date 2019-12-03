@@ -8,7 +8,14 @@
 # Still assume the words are lowercase.
 
 def pig_latin(word)
-
+  check_vowel = %w(a e i o u).include?(word[0])
+  if check_vowel == true
+    word + 'way'
+  elsif check_vowel == false
+    word.each do |letter|
+      word.reverse.chop.reverse + word[0]
+    end
+  end
 end
 
 ## Tests:
