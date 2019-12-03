@@ -11,10 +11,13 @@ def pig_latin(word)
   check_vowel = %w(a e i o u).include?(word[0])
   if check_vowel == true
     word + 'way'
-  elsif check_vowel == false
-    word.each do |letter|
-      word.reverse.chop.reverse + word[0]
+  else
+    word_array = word.chars.to_a
+    until word_array[0].to_s == "a" || word_array[0].to_s == "e" || word_array[0].to_s == "i" || word_array[0].to_s == "o" || word_array[0].to_s == "u"
+      word_array << word_array[0]
+      word_array.shift
     end
+    word_array.join + 'ay'
   end
 end
 
